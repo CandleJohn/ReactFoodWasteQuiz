@@ -1,0 +1,102 @@
+body{
+  background-image: url("../public/images/Backgrounds/background_1.png");
+  padding: 0; 
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+.Title{
+  background-color: rgb(255, 255, 255);
+  margin: 18px auto;
+  padding: 10px;
+  border-radius: 16px;
+  color: rgb(84, 4, 223);
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -12px,
+    rgba(0,0,0,0.3) 0px 18px 36px -18px;
+
+  width: 35%;
+  height: auto;
+}
+
+.question-card {
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 16px;
+  color: rgb(0, 0, 0);
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -12px,
+    rgba(0,0,0,0.3) 0px 18px 36px -18px;
+
+  width: 75%;
+  height: auto;
+}
+
+.question-card h2{
+  color: red;
+}
+ul {
+  list-style: none;
+}
+
+li {
+  background-color: rgb(255, 235, 125);
+  padding: 16px;
+  border: 3px solid white;
+  border-radius: 20px;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.question-text{
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+}
+
+.final-results, .leaderboard {
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 16px;
+  color: rgb(0, 0, 0);
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -12px,
+    rgba(0,0,0,0.3) 0px 18px 36px -18px;
+
+  width: 50%;
+  height: auto;
+}
+.final-results h1 {
+  color: rgb(255, 0, 0);
+}
+
+.leaderboard table{
+  margin: auto;
+}
+
+button {
+  background-color: rgb(255, 235, 125);
+  border: none;
+  color: rgb(4, 4, 4);
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  border-radius: 24px;
+}
+
+input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
