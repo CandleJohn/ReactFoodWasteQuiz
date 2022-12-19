@@ -22,9 +22,9 @@ const quizQuestions = [
     {
       question: "The date stamped on milk is the _______________. ",
       answers: [
-        { id: 1, text: "last date the milk should be sold", isCorrect: true },
+        { id: 1, text: "the date it was packaged", isCorrect: false },
         { id: 2, text: "sell-by", isCorrect: false },
-        { id: 3, text: "both a and b", isCorrect: false },
+        { id: 3, text: "use by date", isCorrect: true },
       ],
       learningPoint: "This date is provided to the grocery store by the milk processor to ensure that they sell the milk at its peak, so you can enjoy its delicious taste. Milk is generally good up to a week after its “sell by” date. This date is for you.",
     },
@@ -53,9 +53,8 @@ const quizQuestions = [
         "After opening jarred sauces such as pasta sauce, where do you store it?",
       answers: [
         {id:1, text: "In the refrigerator", isCorrect: true},
-        {id:2,text: "In the cupboard", isCorrect: false},
+        {id:2, text: "In the cupboard", isCorrect: false},
         {id:3, text: "In the freezer", isCorrect: false },
-        ,
       ],
       learningPoint: "You should never store opened food in the pantry after opening it.",
     },
@@ -67,6 +66,7 @@ const quizQuestions = [
         {id:2, text: "False", isCorrect: false },
       ],
       learningPoint: "Generally, leaves with holes are safe for consumption. in the majority of cases, holes on leaves are due to insects such as slugs, caterpillars or plant disease. Which are harmless to humans. If the leaves presents signs of tears due to larger animals, not insects, the leaves should not be consumed.",
+      image: "./images/questions/holes.jpg",
     },
     {
       question:
@@ -76,6 +76,7 @@ const quizQuestions = [
         {id:2, text: "No", isCorrect: false},
       ],
       learningPoint: "If the apple is kept at a safe temperature, it will not hurt you to eat it, even if it is a little brown. If the apple is not kept at safe temperature after being cut, as a general rule, 4 hours should be the cut off for eating it without worries.",
+      image: "./images/questions/apple.jpg",
     },
     {
       question:
@@ -85,6 +86,7 @@ const quizQuestions = [
         {id:2, text: "False", isCorrect: true },
       ],
       learningPoint: "Eggs with blood spots are safe to eat. They can be eaten along with the egg or scraped off and discarded.",
+      image: "./images/questions/egg.jpg",
     },
 
   ];

@@ -33,6 +33,32 @@ body{
   height: auto;
 }
 
+.intro-card{
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 16px;
+  color: rgb(0, 0, 0);
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -12px,
+    rgba(0,0,0,0.3) 0px 18px 36px -18px;
+
+  width: 75%;
+  height: auto;
+  display: flex;
+  
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.intro-image{
+  display: flex;
+}
+
+.intro-image img{
+  padding: 1em;
+  cursor: grab;
+}
+
 .question-card h2{
   color: red;
 }

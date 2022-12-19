@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import quizQuestions from "./questions.js";
 import Popup from "./components/Popup";
@@ -14,6 +14,7 @@ function App() {
   const [wrongPopup, setWrongPopup] = useState(false);
   const [showFinalResults, setFinalResults] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [showIntroduction, setShowIntroduction] = useState(true);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [learningPoint, setLearningPoint] = useState("");
@@ -22,6 +23,8 @@ function App() {
   const [pLeaderboard, setPLeaderboard] = useState([]);
   const [scoreMulti, setScoreMulti] = useState(1);
   const [background, setBackground] = useState(0);
+  const [happy, setHappy] = useState("");
+  const [sad, setSad] = useState("");
 
   const IMAGES = [
     background_1,
@@ -31,6 +34,24 @@ function App() {
   ];
 
   // functions
+
+  const characterPicked = (character) => {
+    if(character === 1){
+      setHappy("./images/characters/happyBroc.png");
+      setSad("./images/characters/sadBroc.png")
+    }else if(character === 2){
+      setHappy("./images/characters/happyCarrot.png");
+      setSad("./images/characters/sadCarrot.png")
+    }else if(character === 3){
+      setHappy("./images/characters/happyChicken.png");
+      setSad("./images/characters/sadChicken.png")
+    }else{
+      setHappy("./images/characters/happySteak.png");
+      setSad("./images/characters/sadSteak.png")
+    }
+
+    setShowIntroduction(false);
+  }
 
   const changeBG = () => {
     document.body.style.backgroundImage = `url("${IMAGES[background]}")`;
@@ -54,8 +75,6 @@ function App() {
     }
 
     changeBG();
-    console.log(background);
-    console.log(IMAGES[background]);
   };
 
   const restartQuiz = () => {
@@ -63,9 +82,12 @@ function App() {
     setCurrentQuestion(0);
     setFinalResults(false);
     setShowLeaderboard(false);
+    setShowIntroduction(true);
     setScoreMulti(1);
     setPLeaderboard([]);
   };
+
+
 
   const submitInfo = () => {
     Axios.post(`${url}/insert`, {
@@ -77,6 +99,7 @@ function App() {
         Axios.get(`${url}/leaderboard`).then((response) => {
           setPLeaderboard(response.data);
           console.log(response.data);
+          setShowLeaderboard(true);
         });
       })
       .catch((error) => console.error(`Error: ${error}`));
@@ -132,7 +155,7 @@ function App() {
       ) : showFinalResults ? (
         <div className="final-results">
           <h1>Add Your Score to the leaderboard</h1>
-
+          <img src={happy}></img>
           <div className="form">
             <label>Your name:</label>
             <input
@@ -156,6 +179,25 @@ function App() {
           </div>
           <button onClick={() => restartQuiz()}>Restart Game</button>
         </div>
+      ) : showIntroduction ? (
+        <div className="intro-card">
+          
+          <div className="intro-text">
+            <h2>Welcome</h2>
+            <p>
+              Households in Ireland produce almost a quarter of a million tonnes of food waste each year, costing them around €700.
+              Bread, vegetables, fruit and salad are the most common types of food thrown out by households. As students, we might not know 
+              what the best when it comes to dates on food packaging, ugly foods, and where to store food. This quiz will teach you 
+              some of these skills. Just click on a character below to start the quiz. 
+            </p>
+          </div>
+          <div className="intro-image">
+            <img src="./images/characters/happyBroc.png" alt="Brassica Broccoli" onClick={() => characterPicked(1)}></img>
+            <img src="./images/characters/happyCarrot.png" alt="Cooper Carrot" onClick={() => characterPicked(2)}></img>
+            <img src="./images/characters/happyChicken.png" alt="Callie Chicken" onClick={() => characterPicked(3)}></img>
+            <img src="./images/characters/happySteak.png" alt="Sterling Steak" onClick={() => characterPicked(4)}></img>
+          </div>
+        </div>
       ) : (
         <div className="question-card">
           <h2>
@@ -164,6 +206,7 @@ function App() {
           <h3 className="question-text">
             {quizQuestions[currentQuestion].question}
           </h3>
+          <img src={quizQuestions[currentQuestion].image}></img>
           <ul>
             {quizQuestions[currentQuestion].answers.map((answer) => {
               return (
@@ -182,6 +225,7 @@ function App() {
 
       <Popup trigger={wrongPopup} setTrigger={setWrongPopup}>
         <h3>Wrong!</h3>
+        <img src={sad}></img>
         <p>{learningPoint}</p>
       </Popup>
     </div>
