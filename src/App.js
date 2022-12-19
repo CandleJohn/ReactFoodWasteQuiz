@@ -111,7 +111,7 @@ function App() {
     <div className="App">
       <div className="Title">
       {/* 1. Header */}
-      <h1>Food Quiz</h1>
+      <h1>What a waste quiz</h1>
       {/* 2. Current Score */}
       <h2>
         Your Score: {score}
